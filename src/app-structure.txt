@@ -1,0 +1,14 @@
+● src
++---● app
+|   +--● student-details
+|   |  |--student-details.component.ts|.html
+|   |  +--● student-detail-form
+|   |  |  |--student-detail-form.component.ts|.html
+|   |  
+|   +--● shared
+|   |  |--student-detail.service.ts
+|   |  |--student-detail.model.ts
+|   |
+|   |--app.module.ts
+|
+|--index.html (cdn path for bootstrap & fa icons)

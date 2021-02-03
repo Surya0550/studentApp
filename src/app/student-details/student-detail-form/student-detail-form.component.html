@@ -1,0 +1,72 @@
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+    <input type="hidden" name="id" [value]="service.formData.id" />
+    <div class="form-group">
+        <label>STUDENT NAME</label>
+        <input class="form-control form-control-lg" placeholder="Full Name" name="student Name"
+            #name="ngModel" [(ngModel)]="service.formData.name"
+            required pattern="^[A-Za-z -]+$" [class.invalid]="name.invalid && name.touched">
+        
+            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                        
+                <div *ngIf="name.errors.required">
+                    Name is required.
+                </div>
+                <div *ngIf="name.errors.pattern">
+                    Please enter only alphabets.
+                </div>
+            </div>
+    </div>
+    <div class="form-group">
+        <label>STUDENT SUBJECT</label>
+        <input class="form-control form-control-lg" placeholder="Subject Name" name="subject Name"
+            #subject="ngModel" [(ngModel)]="service.formData.subject"
+            required pattern="^[A-Za-z -]+$" [class.invalid]="subject.invalid && subject.touched">
+        
+            <div *ngIf="subject.invalid && (subject.dirty || subject.touched)" class="alert alert-danger">
+                        
+                <div *ngIf="subject.errors.required">
+                    Subject Name is required.
+                </div>
+                <div *ngIf="subject.errors.pattern">
+                    Please enter only alphabets.
+                </div>
+            </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>STUDENT AGE</label>
+            <input type="text" class="form-control form-control-lg" placeholder="Student Age" name="student Age"
+                #age="ngModel" [(ngModel)]="service.formData.age"
+                required maxlength="3" minlength="1" pattern="^[0-9]+$" [class.invalid]="age.invalid && age.touched">
+            
+                <div *ngIf="age.invalid && (age.dirty || age.touched)" class="alert alert-danger">
+                        
+                    <div *ngIf="age.errors.required">
+                        Age is required.
+                    </div>
+                    <div *ngIf="age.errors.pattern">
+                        Please enter only numbers.
+                    </div>
+                </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label>PERCENTAGE</label>
+            <input class="form-control form-control-lg" placeholder="Percentage" name="Student Percentage"
+                #percentage="ngModel" [(ngModel)]="service.formData.percentage"
+                required maxlength="3" minlength="1" pattern="^[0-9]+$" [class.invalid]="percentage.invalid && percentage.touched">
+            
+                <div *ngIf="percentage.invalid && (percentage.dirty || percentage.touched)" class="alert alert-danger">
+                        
+                    <div *ngIf="percentage.errors.required">
+                        Percentage is required.
+                    </div>
+                    <div *ngIf="percentage.errors.pattern">
+                        Please enter only numbers.
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">SUBMIT</button>
+    </div>
+</form>
